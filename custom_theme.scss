@@ -7,27 +7,9 @@ $smallMargin: 5px;
 $blockMargin: 10px;
 $largeMargin: 20px;
 
-// Colors
-
-// Oficial colors of EOSC
-$green: #008691;
-$pink: #ff5b7f;
-$black: #040204;
-
-// complementary colors
-$gray: #e4e4e3;
-$white: #ffffffff;
-$purple: #7e1f86;
-$azure: #eafdf8;
-
-// RGB variants of the colors
-$green-rgb: rgba(0, 134, 145, 1);
-$pink-rgb: rgba(255, 92, 128, 1);
-$black-rgb: rgba(4, 3, 5, 1);
-$gray-rgb: rgba(228, 227, 227, 1);
-$purple-rgb: rgba(126, 31, 134, 1);
-$azure-rgb: rgba(234, 253, 248, 1);
-$white-rgb: rgba(255, 255, 255, 1);
+// Colors are now loaded from _colors.scss, which is auto-generated from colors.json.
+// Do not define color variables here. Edit colors.json and regenerate _colors.scss if needed.
+@import '_colors';
 
 $body-color: $black;
 $backgroundColor: $white;

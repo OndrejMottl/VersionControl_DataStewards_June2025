@@ -26,12 +26,15 @@ knitr::opts_chunk$set(
 )
 
 if (!require("countdown")) install.packages("countdown")
-
 library(countdown)
 
 if (!require("here")) install.packages("here")
-
 library(here)
+
+# Load colors from JSON
+if (!require("jsonlite")) install.packages("jsonlite")
+library(jsonlite)
+
 
 include_local_figure <- function(data_source) {
   knitr::include_graphics(
@@ -44,6 +47,22 @@ include_local_figure <- function(data_source) {
 }
 ```
 
+```{r}
+#| label: colors
+#| include: false
+library(jsonlite)
+
+colors <- 
+  jsonlite::fromJSON("colors.json")
+
+writeLines(
+  text = c(
+    "// This file is auto-generated from colors.json. Do not edit directly.",
+    paste0("$", names(colors), ": ", unname(colors), ";")
+  ),
+  con = here::here("_colors.scss")
+)
+```
 
 # {.bg-green}
 
@@ -53,20 +72,7 @@ include_local_figure <- function(data_source) {
 
 :::: {.columns}
 
-::: {.column width="35%"}
-:::
-
-::: {.column width="40%"}
-
-<br>
-
-```{r}
-#| label: eosc-logo-0
-include_local_figure("Logos/EOSC_white.png")
-```
-:::
-
-::: {.column width="5%"}
+::: {.column width="80%"}
 :::
 
 ::: {.column width="20%"}
@@ -81,16 +87,16 @@ include_local_figure("Logos/GH_logo.png")
 ::::
 
 :::: {.r-hstack}
-::: {data-id="box1" style="background: #040204; width: 120px; height: 15px; margin: 0px;"}
+::: {data-id="box1" style="background: `r colors$black`; width: 120px; height: 15px; margin: 0px;"}
 :::
 
-::: {data-id="box2" style="background: #ff5b7f; width: 550px; height: 15px; margin: 0px;"}
+::: {data-id="box2" style="background: `r colors$pink`; width: 550px; height: 15px; margin: 0px;"}
 :::
 
-::: {data-id="box3" style="background: #ffffffff; width: 120px; height: 15px; margin: 0px;"}
+::: {data-id="box3" style="background: `r colors$white`; width: 120px; height: 15px; margin: 0px;"}
 :::
 
-::: {data-id="box3" style="background: #7e1f86; width: 120px; height: 15px; margin: 0px;"}
+::: {data-id="box3" style="background: `r colors$purple`; width: 120px; height: 15px; margin: 0px;"}
 :::
 ::::
 
@@ -98,8 +104,23 @@ include_local_figure("Logos/GH_logo.png")
 [GitHub]{.text-bold .text-background-pink}: Collaboration and Dissemination
 
 <br>
+:::
 
-::: {.text-right .text-color-black .text-font-roboto .text-size-body}
+:::: {.columns}
+
+::: {.column width="40%"}
+
+<br>
+
+```{r}
+#| label: eosc-logo-0
+include_local_figure("Logos/EOSC_white.png")
+```
+
+:::
+
+
+::: {.column width="60%" .text-right .text-color-black .text-font-roboto .text-size-body}
 [👤](https://ondrejmottl.github.io/)Ondřej Mottl
 
 [05.06.2025]{.text-color-white}
@@ -107,7 +128,7 @@ include_local_figure("Logos/GH_logo.png")
 [Technická univerzita Ostrava]{.text-color-white}
 :::
 
-:::
+::::
 
 ## 🙋Hi! I am Ondřej Mottl
 
