@@ -87,16 +87,16 @@ include_local_figure("Logos/GH_logo.png")
 ::::
 
 :::: {.r-hstack}
-::: {data-id="box1" style="background: `r colors$black`; width: 120px; height: 15px; margin: 0px;"}
+::: {data-id="box1" style="background: `r colors$white`; width: 120px; height: 15px; margin: 0px;"}
 :::
 
 ::: {data-id="box2" style="background: `r colors$pink`; width: 550px; height: 15px; margin: 0px;"}
 :::
 
-::: {data-id="box3" style="background: `r colors$white`; width: 120px; height: 15px; margin: 0px;"}
+::: {data-id="box3" style="background: `r colors$black`; width: 120px; height: 15px; margin: 0px;"}
 :::
 
-::: {data-id="box3" style="background: `r colors$purple`; width: 120px; height: 15px; margin: 0px;"}
+::: {data-id="box3" style="background: `r colors$gray`; width: 120px; height: 15px; margin: 0px;"}
 :::
 ::::
 
@@ -104,6 +104,7 @@ include_local_figure("Logos/GH_logo.png")
 [GitHub]{.text-bold .text-background-pink}: Collaboration and Dissemination
 
 <br>
+
 :::
 
 :::: {.columns}
@@ -160,6 +161,93 @@ Head of 🧑‍💻[Laboratory of Quantitative Ecology](https://ondrejmottl.gith
 #| label: head photo
 include_local_figure("About/head_photo.png")
 ```
+:::
+
+::::
+
+::: {.footer}
+photo by Vladimír Šigut (CUNI)
+:::
+
+## {.bg-green}
+
+<br>
+
+:::: {.columns}
+
+::: {.column width="65%"}
+
+<br>
+<br>
+<br>
+
+::: {.text-color-white .text-font-quicksand .text-size-heading3}
+[GitHub]{.text-bold .text-background-pink}: Collaboration and Dissemination
+:::
+
+::: {.r-hstack}
+::: {data-id="box1" style="background: `r colors$white`; width: 120px; height: 15px; margin: 0px;"}
+:::
+
+::: {data-id="box2" style="background: `r colors$pink`; width: 550px; height: 15px; margin: 0px;"}
+:::
+
+::: {data-id="box3" style="background: `r colors$black`; width: 120px; height: 15px; margin: 0px;"}
+:::
+
+::: {data-id="box3" style="background: `r colors$gray`; width: 120px; height: 15px; margin: 0px;"}
+:::
+:::
+
+[05.06.2025]{.text-color-white}
+
+:::
+
+::: {.column width="35%"}
+
+<br>
+
+```{r}
+#| label: head_photo2
+include_local_figure("About/head_photo.png")
+```
+:::
+
+::::
+
+<br>
+
+:::: {.columns}
+
+::: {.column width="15%"}
+
+```{r}
+#| label: personal_sticker
+include_local_figure("About/personal_sticker.png")
+```
+:::
+
+::: {.column width="55%"}
+* 📧 Ondrej.mottl(at)gmail.com
+* 🦋 [ondrejmottl.bsky.social](https://bsky.app/profile/ondrejmottl.bsky.social)
+* 🌐 [bit.ly/ondrej_mottl](https://bit.ly/ondrej_mottl)
+:::
+
+::: {.column width="15%"}
+:::
+
+::: {.column width="15%"}
+
+```{r}
+#| label: GH_logo2
+include_local_figure("Logos/GH_logo.png")
+```
+
+```{r}
+#| label: logo_eosc
+include_local_figure("Logos/EOSC_white.png")
+```
+
 :::
 
 ::::
