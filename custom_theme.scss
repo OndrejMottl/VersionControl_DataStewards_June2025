@@ -9,7 +9,7 @@ $largeMargin: 20px;
 
 // Colors are now loaded from _colors.scss, which is auto-generated from colors.json.
 // Do not define color variables here. Edit colors.json and regenerate _colors.scss if needed.
-@import '_colors';
+@import "_colors";
 
 $body-color: $black;
 $backgroundColor: $white;
@@ -35,6 +35,18 @@ $heading4Size: 1em;
 
 // Layout
 $content-max-width: 900px;
+
+// Mermaid configuration
+$mermaid-bg-color: $green !important;
+$mermaid-edge-color: $pink !important;
+$mermaid-node-fg-color: $body-color !important;
+$mermaid-fg-color: $azure !important;
+$mermaid-fg-color--lighter: lighten($azure, 10%) !important;
+$mermaid-fg-color--lightest: lighten($azure, 20%) !important;
+$mermaid-font-family: $mainFont !important;
+$mermaid-label-bg-color: $green !important;
+$mermaid-label-fg-color: $azure !important;
+$mermaid-node-bg-color: $green !important;
 
 /*-- scss:rules --*/
 
@@ -67,7 +79,7 @@ h1 {
   line-height: $headingLineHeight;
   letter-spacing: $headingLetterSpacing;
   font-weight: $headingFontWeight;
-  margin: $headingMargin;
+  margin-top: $headingMargin;
   color: $headingColor;
   text-shadow: 3px 4px 5px $black;
   text-align: center;
@@ -79,7 +91,7 @@ h2 {
   line-height: $headingLineHeight;
   letter-spacing: $headingLetterSpacing;
   font-weight: $headingFontWeight;
-  margin: $headingMargin;
+  margin-top: $headingMargin;
   color: $headingColor;
   text-shadow: 3px 4px 5px $black;
   text-align: center;
@@ -91,7 +103,7 @@ h3 {
   line-height: $headingLineHeight;
   letter-spacing: $headingLetterSpacing;
   font-weight: $headingFontWeight;
-  margin: $headingMargin;
+  margin-top: $headingMargin;
   text-shadow: none;
   color: $body-color;
 }
@@ -102,7 +114,7 @@ h4 {
   line-height: $headingLineHeight;
   letter-spacing: $headingLetterSpacing;
   font-weight: $headingFontWeight;
-  margin: $headingMargin;
+  margin-top: $headingMargin;
   text-shadow: none;
   color: $body-color;
 }
@@ -116,6 +128,8 @@ code {
   font-size: $mainFontSize / 2.5;
   line-height: 1;
 }
+
+
 
 /* List styling */
 ul {
@@ -186,7 +200,7 @@ ul {
   border-radius: 5px;
 }
 
-.text-background-azure {
+.exercise {
   background-color: $azure;
   color: $black;
   padding: $smallMargin;
@@ -291,11 +305,19 @@ ul {
 }
 
 .text-smaller {
-  font-size: $mainFontSize * 0.7;
+  font-size: $mainFontSize * 0.7 !important;
 }
 
 .text-larger {
-  font-size: $mainFontSize * 1.3;
+  font-size: $mainFontSize * 1.3 !important;
+}
+
+.text-margin-top {
+  margin: 0;
+  position: absolute;
+  top: 25%;
+  -ms-transform: translateY(-25%);
+  transform: translateY(-25%);
 }
 
 /* Slide content layout */
@@ -344,7 +366,7 @@ ul {
 }
 
 .reveal .bg-purple {
-  background-color: $green;
+  background-color: $purple;
 }
 
 .reveal .bg-white {

@@ -35,6 +35,8 @@ library(here)
 if (!require("jsonlite")) install.packages("jsonlite")
 library(jsonlite)
 
+if(!require("qrcode")) install.packages("qrcode")
+library(qrcode)
 
 include_local_figure <- function(data_source) {
   knitr::include_graphics(
@@ -168,6 +170,1038 @@ include_local_figure("About/head_photo.png")
 ::: {.footer}
 photo by Vladimír Šigut (CUNI)
 :::
+
+
+## Fast & Furious
+
+<br>
+
+:::: {.columns}
+
+::: {.column width="10%"}
+:::
+ 
+::: {.column width="80%"}
+
+```{r}
+#| label: fast-furious
+knitr::include_graphics("https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDhpNWZvdzB5eTZuOGs3eTJ4dzhpZnRrOXQzNWZpanl0dHF6eTJkNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/B1uajA01vvL91Urtsp/giphy.gif")
+```
+
+:::
+
+::: {.column width="10%"}
+:::
+
+::::
+
+::: footer
+[https://giphy.com/](https://giphy.com/)
+:::
+
+## [This presentation]{.text-color-white} {.text-center .bg-black}
+
+<br>
+<br>
+
+😸Code on GitHub: [OndrejMottl/VersionControl_DataStewards_June2025](https://ondrejmottl.github.io/VersionControl_DataStewards_June2025/)
+
+![](https://img.shields.io/badge/License-MIT-yellow.svg)
+
+🖼️Slides: [bit.ly/mottl_prez_20250605](https://bit.ly/mottl_prez_20250605)
+
+<br>
+
+:::: {.columns}
+
+::: {.column width="33%"}
+:::
+
+::: {.column width="30%"}
+```{r}
+#| label: qr_slides
+#| echo: false
+qr_code <-
+  qrcode::qr_code(
+    "https://bit.ly/mottl_prez_20250605"
+  )
+
+qrcode::generate_svg(
+  qr_code,
+  filename = here::here(
+    "Materials",
+    "QR_codes",
+    "qr_slides.svg"
+  )
+)
+
+include_local_figure("QR_codes/qr_slides.svg")
+```
+
+:::
+
+::: {.column width="33%"}
+:::
+
+::::
+
+## Evolution
+
+```{r}
+#| label: evolution
+include_local_figure("Scriberia/openresearch.jpg")
+```
+
+::: {.footer}
+[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
+:::
+
+## Collaboration
+
+```{r}
+#| label: community-exchange
+include_local_figure("Scriberia/community-exchange.jpg")
+```
+
+::: {.footer}
+[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
+:::
+
+# [Repeat]{.bold .r-fit-text} {.bg-green .text-color-white .text-margin-top}
+
+## What do you remember?
+
+<div style='position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;'>
+<iframe data-external="1" sandbox='allow-scripts allow-same-origin allow-presentation' allowfullscreen='true' allowtransparency='true' frameborder='0' height='315' src='https://www.mentimeter.com/app/presentation/alrhx8ugek4qsgp9p45ggvcrpug2zdpq/embed' style='position: absolute; top: 0; left: 0; width: 100%; height: 100%;' width='420'>
+</iframe>
+</div>
+
+## Project self-containment
+
+```{r}
+#| label: file-management
+include_local_figure("Scriberia/file-management-manual-with-text.jpg")
+```
+
+::: {.footer}
+[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
+:::
+
+## Git vs GitHub
+
+:::: columns
+
+::: {.column width="45%"}
+
+### Git {.text-center}
+
+* local software
+* keep track of changes of files 
+
+```{r}
+#| label: git-logo
+#| fig-width: 1
+#| fig-height: 1 
+include_local_figure("Logos/Git_icon.svg.png")
+```
+
+:::
+
+::: {.column width="10%" }
+:::
+
+::: {.column width="45%" }
+
+### GitHub {.text-center}
+
+* host server
+* store (git) the data
+* project management, collaboration, publishing
+
+```{r}
+#| label: github-logo
+include_local_figure("Logos/GH_logo.png")
+```
+
+:::
+
+::::
+
+## Basic vocabulary
+
+:::: columns
+
+::: {.column width="45%" .incremental}
+
+* [Project]{.text-background-green} is self contained project/study/paper containg R scripts, data, figures, etc.
+* Every such project is called [repository]{.text-background-pink} (ie a *repo*) 
+* [commit]{.text-background-black} is a **record of changes** in the repository
+* Your **local** repository is called [local]{.text-background-azure}
+* Your **online** repository, is called [remote]{.text-background-azure}
+
+:::
+
+:::{.column width="55%" .fragment}
+
+<br>
+<br>
+<br>
+
+```{r}
+#| label: local-remote
+knitr::include_graphics("https://user.oc-static.com/upload/2022/01/04/16412576933806_image30.png")
+```
+:::
+
+::::
+
+::: {.footer}
+[https://openclassrooms.com/](https://openclassrooms.com/en/courses/7476131-manage-your-code-project-with-git-and-github/7681891-work-in-your-local-git-repository)
+::: 
+
+## Branches
+
+```{r}
+#| label: git-branches-funny
+knitr::include_graphics("https://coderefinery.github.io/git-intro/_images/gophers.png")
+```
+
+::: {.footer}
+[coderefinery](https://coderefinery.github.io/git-intro/commits/)
+:::
+
+## Pull Requests (merging branches)
+
+```{r}
+#| label: git-merge-branch-scheme2
+knitr::include_graphics("https://www.yakuter.com/wp-content/yuklemeler/1_sMJbSt3sLrC-sIsPOVRBdw.png")
+```
+
+::: {.footer}
+[https://www.yakuter.com/](https://www.yakuter.com/pull-request-kulturu/)
+:::
+
+## Note on practical exercises {.exercise}
+
+```{r}
+#| label: practical-exercise-note
+include_local_figure("Exercise/monkey_see_monkey_do_by_adiasarahma.png")
+```
+
+::: {.footer}
+[image by adiasarahma](https://www.deviantart.com/adiasarahma/)
+:::
+
+## The whole game {.exercise}
+
+<br>
+
+```{mermaid}
+flowchart LR
+    subgraph Project
+      direction TB
+    subgraph Workflow
+      direction LR
+      A3(["make a branch"]) ==> A4(["make commits"])
+      A4 ==> A5(["make A PR"])
+      A5 ==> A6(["review PR"])
+      A6 ==> A7(["merge PR"])
+      A7 ==> A8(["delete branch"])
+      A8 -.-> A3
+    end
+    A1(["new repo"]) --> A2(["Clone it"])
+    A2 --> Workflow
+    end
+```
+
+## Your turn? {.exercise .text-center}
+
+<br>
+
+:::{.blockquote}
+
+1. Make a new GH repository
+2. Clone the repository to your local computer
+3. Make a new branch
+4. Make a change in the branch
+5. Commit the change
+6. Make a pull request
+7. Merge the pull request
+8. Delete the branch
+
+:::
+
+`r countdown(minutes = 5)`
+
+# [Collaboration]{.bold .r-fit-text} {.bg-green .text-color-white .text-margin-top}
+
+
+## Collaboration types
+
+```{r}
+#| label: collaboration-types
+include_local_figure("Scriberia/collaboration-types.jpg")
+```
+
+::: {.footer}
+[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
+:::
+
+## There is more ...
+
+```{r}
+#| label: Collaboration
+include_local_figure("Scriberia/Collaboration.jpg")
+```
+
+::: {.footer}
+[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
+:::
+
+## Collaboration forms
+
+<br>
+
+:::: {.columns}
+
+::: {.column width="65%"}
+
+```{r}
+#| label: GH-team-admin-roles-teaching2
+include_local_figure("Scriberia/FirstPullRequest.jpg")
+```
+:::
+
+::: {.column width="34%"}
+```{r}
+#| label: GH-team-admin-roles-teaching
+include_local_figure("Scriberia/CommunityNetwork.jpg")
+```
+:::
+
+::::
+
+::: {.footer}
+[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
+:::
+
+## Let's talk about it
+
+[GitHub Discussions]{.text-background-green} are project-specific space for [communication]{.text-background-pink} on GitHub.
+
+```{r}
+#| label: GH-discussions
+knitr::include_graphics("https://github.githubassets.com/assets/overview-d34a37d61239.png")
+```
+
+::: {.footer}
+[GitHub Docs](https://github.com/features/discussions)
+:::
+
+## Note on Markdown {.bg-pink}
+
+:::: {.columns}
+
+:::: {.column width="50%"}
+You can use [Markdown]{.text-background-green} on GitHub in the description and comments
+
+More details on [Github Docs](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+:::
+
+::: {.column width="50%"}
+```{r}
+#| label: markdown-syntax-pr
+include_local_figure("Markdown/Markdown_syntax.png")
+```
+:::
+::::
+
+::: {.footer}
+[https://arminreiter.com/](https://arminreiter.com/resources/)
+:::
+
+## Practical Exercise {.exercise .text-center}
+
+<br>
+
+:::{.blockquote}
+1. Post a question in the [Discussions]{.text-background-green} of your repository
+2. Answer a question in the [Discussions]{.text-background-green} at [VersionControl-Playground](https://github.com/OndrejMottl/VersionControl-playground)
+:::
+
+`r countdown(minutes = 15)`
+
+## Working together on a repo
+
+```{r}
+#| label: git-many-clones
+knitr::include_graphics("https://sfdctechie.wordpress.com/wp-content/uploads/2019/12/github.png")
+```
+
+::: {.footer}
+[sfdc techie – Pavan's blog](https://sfdctechie.wordpress.com/2019/12/27/how-to-add-a-salesforce-dx-project-to-source-control-step-by-step-guide/)
+:::
+
+## Practical Exercise {.exercise .text-center}
+
+<br>
+
+:::{.blockquote}
+1. Add someone as a collaborator to your repo
+2. Remove the collaborator
+:::
+
+`r countdown(minutes = 5)`
+
+## Teams
+
+For organisations, Github allows you to specify [roles]{.text-background-green} and [permissions]{.text-background-pink} of your repo.
+
+```{r}
+#| label: GH-team-admin-roles
+include_local_figure("Github/GH_team_admin.png")
+```
+
+::: {.footer}
+[GitHub Docs](https://github.com/features/#features-team-administration)
+:::
+
+## Roles (permissions)
+
+```{r}
+#| label: GH-team-admin-roles3
+knitr::include_graphics("https://cdn.prod.website-files.com/65cb70dea86ef31d62e7ad25/65dc9790deb55bea60f20179_630d23aa00443e4276226ebd_pre-defined_roles_f859b878b8d94a5a98737bd2c66493e2_1000.png")
+```
+
+::: {.footer}
+[GitHub Advanced Security - Secret Scanning](https://www.liatrio.com/resources/blog/github-advanced-security-secret-scanning)
+:::
+
+<!--
+
+## Project Communication Plan
+
+```{r}
+#| label: project-communication-collaborations
+knitr::include_graphics("https://plan.io/images/blog/project-communication-plan.png?1722938254")
+```
+
+::: {.footer}
+[Plan.io](https://plan.io/blog/)
+:::
+
+## Project Communication Plan
+
+<br>
+
+:::: {.columns}
+
+::: {.column width="60%" .incremental}
+
+* [Sets expectations]{.text-background-green .bold} for everyone involved
+* [Increases productivity]{.text-background-pink} (e.g. meetings)
+* [Improves team morale]{.text-background-black} and motivation
+
+:::
+
+::: {.column width="40%"}
+
+```{r}
+#| label: ResearchTools
+include_local_figure("Scriberia/ResearchTools.jpg")
+```
+
+::: 
+
+::::
+
+::: {.footer}
+[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
+:::
+
+-->
+
+# [Task Management]{.bold .r-fit-text} {.bg-green .text-color-white .text-margin-top}
+
+## Tasks management
+
+```{r}
+#| label: tasks-management
+knitr::include_graphics("https://plan.io/images/blog/what-is-task-management.png?1721728085")
+```
+
+::: {.footer}
+[Plan.io](https://plan.io/blog/what-is-task-management/)
+::: 
+
+<!--
+
+## What is a task?
+
+```{r}
+#| label: task-definition
+knitr::include_graphics("https://plan.io/images/blog/what-who-how.png?1722938252")
+```
+
+::: {.footer}
+[Plan.io](https://plan.io/blog/what-is-task-management/)
+::: 
+
+## Best Practices
+
+### [1. Split yout work into manageble chunks]{.text-background-green}
+
+<br>
+
+:::: {.columns .fragment}
+
+::: {.column width="20%"}
+:::
+
+::: {.column width="60%"}
+
+```{r}
+#| label: task-mng-best-practices-split
+knitr::include_graphics("https://plan.io/images/blog/break-down-projects.png?1721728085")
+```
+
+:::
+
+::: {.column width="20%"}
+:::
+
+::::
+
+::: {.footer}
+[Plan.io](https://plan.io/blog/)
+:::
+
+## Best Practices
+
+### [2. Make your task atomic]{.text-background-pink}
+
+<br>
+
+It should be clear what is the [**goal**]{.text-background-green} and [**criteria**]{.text-background-pink} of the task.
+
+<br>
+
+:::: {.columns }
+
+::: {.column width="20%"}
+:::
+
+::: {.column width="60%" .text-center}
+::: {.blockquote}
+One chunk of work = one task
+:::
+:::
+
+::::
+
+## Best Practices
+
+### [3. Set priority of tasks]{.text-background-black}
+
+<br>
+
+:::: {.columns .fragment}
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="70%"}
+
+```{r}
+#| label: task-mng-best-practices-prioritise
+knitr::include_graphics("https://plan.io/images/blog/eisenhower-box.png?1721728085")
+```
+
+:::
+
+::: {.column width="20%"}
+:::
+
+::::
+
+::: {.footer}
+[Plan.io](https://plan.io/blog/)
+:::
+
+-->
+
+## Tasks management tools
+
+[Jory MacKay](https://plan.io/blog/what-is-task-management/)
+
+::: {.blockquote}
+A ... **task management tool** ... is your best friend when it comes to organizing, assigning, tracking, and reporting on tasks.
+:::
+
+:::: {.columns .fragment}
+
+::: {.column width="20%"}
+:::
+
+::: {.column width="60%"}
+```{r}
+#| label: task-management-tools
+knitr::include_graphics("https://plan.io/images/blog/purpose-of-project-schedule.png?1722938242")
+```
+:::
+
+::::
+
+::: {.footer}
+[Plan.io](https://plan.io/blog/)
+:::
+
+## Tasks management tools
+
+There are many tools for task management!!!
+
+::::: {.fragment}
+### Google Keep
+
+:::: {.columns}
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="70%"}
+```{r}
+#| label: project-management-tools
+knitr::include_graphics("https://www.process.st/wp-content/uploads/2024/02/google-keep-homepage.png")
+```
+:::
+::::
+:::::
+
+::: {.footer}
+[How to Use Google Keep to Create The Ultimate Task List](https://www.process.st/how-to-use-google-keep/)
+:::
+
+## GitHub tools suite
+
+<br>
+
+:::: {.columns}
+
+::: {.column width="20%"}
+```{r}
+#| label: gh_logo
+include_local_figure("Logos/Github-desktop-logo-symbol.svg.png")
+```
+:::
+
+::: {.column width="80%"}
+```{r}
+#| label: project-management-tools-gh
+include_local_figure("GitHub/GH_management.png")
+```
+:::
+
+::::
+
+::: footer
+[wiki](https://commons.wikimedia.org/wiki/File:Github-desktop-logo-symbol.svg) | [Getting started with project planning on GitHub](https://github.blog/developer-skills/github/getting-started-with-project-planning-on-github/)
+:::
+
+## Issue (a task) on GitHub
+
+Original purpose of [GitHub Issues]{.text-background-green} is to track bugs & feature requests in software developmen projects🧑‍💻.
+
+However, We can highjack it for any kind of task management🦹.
+
+<br>
+
+:::: {.columns}
+
+:::{.column width="50%"}
+
+```{r}
+#| label: ResearchCycle
+include_local_figure("Scriberia/ResearchCycle.jpg")
+```
+:::
+
+:::{.column width="50%"}
+```{r}
+#| label: software-dev-life-cycle
+knitr::include_graphics("https://miro.medium.com/v2/resize:fit:4800/format:webp/1*GU-YWDqM-ZljYHGs1iDNPg.jpeg")
+
+```
+:::
+::::
+
+::: footer
+[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807) |
+[Software development life-cycle (SDLC)](https://medium.com/@artjoms/software-development-life-cycle-sdlc-6155dbfe3cbc)
+:::
+
+## Issue (a task) on GitHub
+
+```{r}
+#| label: issue-on-GH
+knitr::include_graphics("https://docs.github.com/assets/cb-66899/mw-1440/images/help/issues/issue-title-body.webp")
+```
+
+::: footer
+[GitHub Docs](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues)
+:::
+
+## Issues - space for communication
+
+```{r}
+#| label: issue-on-GH-comments
+knitr::include_graphics("https://rewind.com/wp-content/uploads/2021/03/G8oAt9b.png")
+```
+
+::: footer
+[Rewind](https://rewind.com/blog/best-practices-for-using-github-issues/)
+:::
+
+## Splitting tasks 
+
+:::: {.columns}
+
+:::{.column width="50%"}
+
+You can split tasks into [subtasks]{.text-background-green} and [checklists]{.text-background-pink}.
+
+This allow to track progress more granularly.
+
+:::
+
+:::{.column width="50%"}
+
+```{r}
+#| label: issue-on-GH-subtasks
+knitr::include_graphics("https://docs.github.com/assets/cb-127397/mw-1440/images/help/writing/task-list-rendered.webp")
+```
+
+:::
+
+::::
+
+::: footer
+[GitHub Docs](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)
+:::
+
+## Issues - Assign
+
+```{r}
+#| label: issue-on-GH-assign
+knitr::include_graphics("https://docs.github.com/assets/cb-119861/mw-1440/images/help/issues/issue-assignees.webp")
+```
+
+::: footer
+[GitHub Docs](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues)
+:::
+
+## Practical Exercise {.exercise .text-center}
+
+<br>
+
+:::{.blockquote}
+1. Create an 3 issus on your repo
+2. Comment on the issues
+3. Create a higher-level task with subtasks (checklist)
+4. Assign the tasks to someone 
+:::
+
+`r countdown(minutes = 5)`
+
+## Labels
+
+You can use [labels]{.text-background-green} to categorize tasks.
+
+```{r}
+#| label: issue-on-GH-labels
+knitr::include_graphics("https://docs.github.com/assets/cb-120194/mw-1440/images/help/issues/issue-with-label.webp")
+```
+
+::: footer
+[GitHub Docs](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues)
+:::
+
+## Labels
+
+::::{.columns}
+
+:::{.column width="35%"}
+Be crateative! You can create your own **labels** based on:
+
+* [priority]{.text-background-green}
+* [type]{.text-background-pink}
+* [status]{.text-background-black}
+* ...
+:::
+
+:::{.column width="64%" .fragment}
+```{r}
+#| label: issue-on-GH-labels2
+include_local_figure("Github/gh_labels.png")
+```
+:::
+::::
+
+::: footer
+[GitHub Docs](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues)
+:::
+
+## Practical Exercise {.exercise .text-center}
+
+<br>
+
+:::{.blockquote}
+1. Create 3 new labels in your repo
+2. Assign the labels to the issues 
+:::
+
+`r countdown(minutes = 5)`
+
+## Tracking progress - link PRs
+
+[Issues]{.text-background-green} can be linked to [Pull Requests]{.text-background-pink}.
+
+Link specific work with specific changes.
+
+```{r}
+#| label: issue-on-GH-PR
+knitr::include_graphics("https://github.blog/wp-content/uploads/2020/02/issue-pull-request-link.png")
+```
+
+::: footer
+[GitHub Docs](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)
+:::
+
+## Tracking progress - link PRs
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+When a PR is merged, the issue is closed automatically.
+
+Use the word `close` or `fix` in the PR description to link it to the issue.
+
+:::
+
+::: {.column width="50%" }
+```{r}
+#| label: Link-PR
+include_local_figure("Github/issue_closed_by_PR_1.png")
+```
+
+::: {.fragment}
+The issue is closed by the PR
+```{r}
+#| label: Link-PR2
+include_local_figure("Github/issue_closed_by_PR_2.png")
+```
+:::
+
+:::
+::::
+
+## Practical Exercise {.exercise .text-center}
+
+<br>
+
+:::{.blockquote}
+1. Create a new PR in your repo
+2. Link it to one of the issues
+3. Merge the PR
+4. Check if the issue is closed
+:::
+
+`r countdown(minutes = 10)`
+
+## Making a plan
+
+```{r}
+#| label: making-a-plan
+knitr::include_graphics("https://plan.io/images/blog/creating-actionable-project-plans.png?1722938248")
+```
+
+::: {.footer}
+[Plan.io](https://plan.io/blog/)
+:::
+
+## Tracking progress - Milestones
+
+```{r}
+#| label: milestones
+knitr::include_graphics("https://plan.io/images/blog/project-timeline-with-milestones.png?1722938244")
+```
+
+::: footer
+[Plan.io](https://plan.io/blog/)
+:::
+
+## Tracking progress - Milestones
+
+```{r}
+#| label: gh-milestones
+knitr::include_graphics("https://docs.github.com/assets/cb-120118/mw-1440/images/help/issues/issue-milestone.webp")
+```
+
+::: footer
+[GitHub Docs](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/about-milestones)
+:::
+
+## Tracking progress - Milestones
+
+You can create a Milestone for:
+
+::: {.incremental}
+* [Time frame]{.text-background-green} - "2024-10-12", "Conference XY", ...
+* [Goal]{.text-background-pink} - "Methodology refactor", "paper submission", ...
+* [General topic]{.text-background-black} - "Data cleaning", "Data analysis", ...
+:::
+
+## Practical Exercise {.exercise .text-center}
+
+<br>
+
+:::{.blockquote}
+1. Create a new Milestone in your repo
+2. Assign the issues to the Milestone
+:::
+
+`r countdown(minutes = 15)`
+
+# [Project Management]{.bold .r-fit-text} {.bg-green .text-color-white .text-margin-top}
+
+## GitHub Projects
+
+```{r}
+#| label: GH-project-tools
+knitr::include_graphics("https://github.blog/wp-content/uploads/2022/02/GitHub-Issues-project-planning_banner.png")
+```
+
+::: footer
+[GitHub Docs](https://github.com/features/issues)
+:::
+
+## GitHub Projects
+
+You can organise your [Issues]{.text-background-green} and [Pull Requests]{.text-background-pink} in [Projects]{.text-background-black}.
+
+```{r}
+#| label: GH-projects
+knitr::include_graphics("https://docs.github.com/assets/cb-108386/mw-1440/images/help/projects/priority-example.webp")
+```
+
+::: footer
+[GitHub Docs](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects)
+:::
+
+## GitHub Projects
+
+:::: {.columns}
+
+::: {.column width="40%"}
+You can customise the [columns]{.text-background-green} in [Projects]{.text-background-pink} with:
+ 
+* [Labels]{.text-background-black}
+* [Linked Pull Requests]{.text-background-black}
+* [Milestones]{.text-background-black}
+* ...
+:::
+
+::: {.column width="60%"}
+```{r}
+#| label: GH-projects-columns
+knitr::include_graphics("https://github.githubassets.com/assets/issue-custom-fields-reduced-motion-dd7b91ab2517.jpg")
+```
+:::
+::::
+
+::: footer
+[GitHub Docs](https://github.com/features/issues)
+:::
+
+## GitHub Projects - custom views
+
+```{r}
+#| label: GH-projects-custom-views
+knitr::include_graphics("https://github.githubassets.com/assets/memex-table-slice-dark-8fde73579a0b.png")
+```
+
+::: footer
+[GitHub Docs](https://github.com/features/issues)
+:::
+
+## GitHub Projects - custom views
+
+```{r}
+#| label: GH-projects-custom-views2
+knitr::include_graphics("https://github.githubassets.com/assets/memex-board-dark-48efb683527e.png")
+```
+
+::: footer
+[GitHub Docs](https://github.com/features/issues)
+:::
+
+## Practical Exercise {.exercise .text-center}
+
+<br>
+
+:::{.blockquote}
+
+1. Create a new Project in your repo
+2. Assing Issues into the Project
+3. Create a new column
+4. Change the view of the Project
+  
+:::
+
+`r countdown(minutes = 15)`
+
+## GitHub Projects 
+
+There is so much more you can do with [Projects]{.text-background-green}:
+
+* [Automations]{.text-background-pink}
+* [Road maps]{.text-background-black}
+* ...
+
+Check the [official documentation](https://github.com/features/issues)
+
+# [Dissemination]{.bold .r-fit-text} {.bg-green .text-color-white .text-margin-top}
+
+<!--
+
+# Outline
+
+0. Repeat
+- git vs GH
+- how to make a branch and commit changes
+- Make a PR and merge it
+
+1. Collaboration
+- some intro about forms of collaboration
+- Lets talk about it (Discussions)
+- Collaborators on GH
+- Teams of GH
+- [Project communication plan]
+- Task management (Issues)
+- link Issues with PR
+- Milestones
+- Projects
+
+2. Dissemination
+- README
+- LICENCE
+- Wiki
+- Tags and Releases
+- GH + Zenodo
+
+-->
+
+<!--OUTRO-->
 
 ## {.bg-green}
 
