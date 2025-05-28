@@ -171,6 +171,34 @@ include_local_figure("About/head_photo.png")
 photo by Vladimír Šigut (CUNI)
 :::
 
+
+## Fast & Furious
+
+<br>
+
+:::: {.columns}
+
+::: {.column width="10%"}
+:::
+ 
+::: {.column width="80%"}
+
+```{r}
+#| label: fast-furious
+knitr::include_graphics("https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDhpNWZvdzB5eTZuOGs3eTJ4dzhpZnRrOXQzNWZpanl0dHF6eTJkNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/B1uajA01vvL91Urtsp/giphy.gif")
+```
+
+:::
+
+::: {.column width="10%"}
+:::
+
+::::
+
+::: footer
+[https://giphy.com/](https://giphy.com/)
+:::
+
 ## [This presentation]{.text-color-white} {.text-center .bg-black}
 
 <br>
@@ -431,6 +459,8 @@ include_local_figure("Scriberia/Collaboration.jpg")
 :::
 
 ## Collaboration forms
+
+<br>
 
 :::: {.columns}
 
@@ -988,10 +1018,6 @@ include_local_figure("Github/issue_closed_by_PR_2.png")
 
 `r countdown(minutes = 10)`
 
-
-
-<!--
-
 ## Making a plan
 
 ```{r}
@@ -1003,7 +1029,148 @@ knitr::include_graphics("https://plan.io/images/blog/creating-actionable-project
 [Plan.io](https://plan.io/blog/)
 :::
 
--->
+## Tracking progress - Milestones
+
+```{r}
+#| label: milestones
+knitr::include_graphics("https://plan.io/images/blog/project-timeline-with-milestones.png?1722938244")
+```
+
+::: footer
+[Plan.io](https://plan.io/blog/)
+:::
+
+## Tracking progress - Milestones
+
+```{r}
+#| label: gh-milestones
+knitr::include_graphics("https://docs.github.com/assets/cb-120118/mw-1440/images/help/issues/issue-milestone.webp")
+```
+
+::: footer
+[GitHub Docs](https://docs.github.com/en/issues/using-labels-and-milestones-to-track-work/about-milestones)
+:::
+
+## Tracking progress - Milestones
+
+You can create a Milestone for:
+
+::: {.incremental}
+* [Time frame]{.text-background-green} - "2024-10-12", "Conference XY", ...
+* [Goal]{.text-background-pink} - "Methodology refactor", "paper submission", ...
+* [General topic]{.text-background-black} - "Data cleaning", "Data analysis", ...
+:::
+
+## Practical Exercise {.exercise .text-center}
+
+<br>
+
+:::{.blockquote}
+1. Create a new Milestone in your repo
+2. Assign the issues to the Milestone
+:::
+
+`r countdown(minutes = 15)`
+
+# [Project Management]{.bold .r-fit-text} {.bg-green .text-color-white .text-margin-top}
+
+## GitHub Projects
+
+```{r}
+#| label: GH-project-tools
+knitr::include_graphics("https://github.blog/wp-content/uploads/2022/02/GitHub-Issues-project-planning_banner.png")
+```
+
+::: footer
+[GitHub Docs](https://github.com/features/issues)
+:::
+
+## GitHub Projects
+
+You can organise your [Issues]{.text-background-green} and [Pull Requests]{.text-background-pink} in [Projects]{.text-background-black}.
+
+```{r}
+#| label: GH-projects
+knitr::include_graphics("https://docs.github.com/assets/cb-108386/mw-1440/images/help/projects/priority-example.webp")
+```
+
+::: footer
+[GitHub Docs](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects)
+:::
+
+## GitHub Projects
+
+:::: {.columns}
+
+::: {.column width="40%"}
+You can customise the [columns]{.text-background-green} in [Projects]{.text-background-pink} with:
+ 
+* [Labels]{.text-background-black}
+* [Linked Pull Requests]{.text-background-black}
+* [Milestones]{.text-background-black}
+* ...
+:::
+
+::: {.column width="60%"}
+```{r}
+#| label: GH-projects-columns
+knitr::include_graphics("https://github.githubassets.com/assets/issue-custom-fields-reduced-motion-dd7b91ab2517.jpg")
+```
+:::
+::::
+
+::: footer
+[GitHub Docs](https://github.com/features/issues)
+:::
+
+## GitHub Projects - custom views
+
+```{r}
+#| label: GH-projects-custom-views
+knitr::include_graphics("https://github.githubassets.com/assets/memex-table-slice-dark-8fde73579a0b.png")
+```
+
+::: footer
+[GitHub Docs](https://github.com/features/issues)
+:::
+
+## GitHub Projects - custom views
+
+```{r}
+#| label: GH-projects-custom-views2
+knitr::include_graphics("https://github.githubassets.com/assets/memex-board-dark-48efb683527e.png")
+```
+
+::: footer
+[GitHub Docs](https://github.com/features/issues)
+:::
+
+## Practical Exercise {.exercise .text-center}
+
+<br>
+
+:::{.blockquote}
+
+1. Create a new Project in your repo
+2. Assing Issues into the Project
+3. Create a new column
+4. Change the view of the Project
+  
+:::
+
+`r countdown(minutes = 15)`
+
+## GitHub Projects 
+
+There is so much more you can do with [Projects]{.text-background-green}:
+
+* [Automations]{.text-background-pink}
+* [Road maps]{.text-background-black}
+* ...
+
+Check the [official documentation](https://github.com/features/issues)
+
+# [Dissemination]{.bold .r-fit-text} {.bg-green .text-color-white .text-margin-top}
 
 <!--
 
@@ -1033,7 +1200,6 @@ knitr::include_graphics("https://plan.io/images/blog/creating-actionable-project
 - GH + Zenodo
 
 -->
-
 
 <!--OUTRO-->
 
