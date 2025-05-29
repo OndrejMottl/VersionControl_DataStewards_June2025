@@ -25,6 +25,10 @@ knitr::opts_chunk$set(
   fig.align = "center"
 )
 
+if (!require("renv")) install.packages("renv")
+library(renv)
+renv::restore(prompt = FALSE)
+
 if (!require("countdown")) install.packages("countdown")
 library(countdown)
 
@@ -276,6 +280,8 @@ include_local_figure("Scriberia/community-exchange.jpg")
 </iframe>
 </div>
 
+`r countdown(minutes = 5)`
+
 ## Project self-containment
 
 ```{r}
@@ -435,6 +441,16 @@ flowchart LR
 
 # [Collaboration]{.bold .r-fit-text} {.bg-green .text-color-white .text-margin-top}
 
+## GitHub a Tool for collaboration
+
+```{r}
+#| label: publishing-scheme
+include_local_figure("Open_Science/Ten Simple Rules for Taking Advantage of Git and GitHub.png")
+```
+
+::: footer
+[Ten Simple Rules for Taking Advantage of Git and GitHub](http://dx.doi.org/10.1371/journal.pcbi.1004947)
+:::
 
 ## Collaboration types
 
@@ -530,6 +546,18 @@ include_local_figure("Markdown/Markdown_syntax.png")
 :::
 
 `r countdown(minutes = 15)`
+
+## Sharing is caring
+
+```{r}
+#| label: sharing
+knitr::include_graphics("https://ecdn.teacherspayteachers.com/thumbitem/Sharing-Taking-Turns-Social-Story-Sharing-is-Caring-2116795-1657562183/original-2116795-1.jpg
+")
+```
+
+::: footer
+[https://www.teacherspayteachers.com/](https://www.teacherspayteachers.com/Product/Sharing-Taking-Turns-Social-Story-Sharing-is-Caring-2116795?st=28217229556fa41179351fd430c2ca9c)
+:::
 
 ## Working together on a repo
 
@@ -809,15 +837,15 @@ include_local_figure("GitHub/GH_management.png")
 
 ## Issue (a task) on GitHub
 
-Original purpose of [GitHub Issues]{.text-background-green} is to track bugs & feature requests in software developmen projects🧑‍💻.
+Original purpose of [GitHub Issues]{.text-background-green} is to track bugs & feature requests in software development projects🧑‍💻.
 
-However, We can highjack it for any kind of task management🦹.
+However, We can hijack it for any kind of task management🦹.
 
 <br>
 
 :::: {.columns}
 
-:::{.column width="50%"}
+::: {.column width="50%"}
 
 ```{r}
 #| label: ResearchCycle
@@ -825,13 +853,14 @@ include_local_figure("Scriberia/ResearchCycle.jpg")
 ```
 :::
 
-:::{.column width="50%"}
+::: {.column width="50%"}
 ```{r}
 #| label: software-dev-life-cycle
 knitr::include_graphics("https://miro.medium.com/v2/resize:fit:4800/format:webp/1*GU-YWDqM-ZljYHGs1iDNPg.jpeg")
 
 ```
 :::
+
 ::::
 
 ::: footer
@@ -904,7 +933,7 @@ knitr::include_graphics("https://docs.github.com/assets/cb-119861/mw-1440/images
 <br>
 
 :::{.blockquote}
-1. Create an 3 issus on your repo
+1. Create an 3 issues on your repo
 2. Comment on the issues
 3. Create a higher-level task with subtasks (checklist)
 4. Assign the tasks to someone 
@@ -930,7 +959,7 @@ knitr::include_graphics("https://docs.github.com/assets/cb-120194/mw-1440/images
 ::::{.columns}
 
 :::{.column width="35%"}
-Be crateative! You can create your own **labels** based on:
+Be creative! You can create your own **labels** based on:
 
 * [priority]{.text-background-green}
 * [type]{.text-background-pink}
@@ -1172,34 +1201,256 @@ Check the [official documentation](https://github.com/features/issues)
 
 # [Dissemination]{.bold .r-fit-text} {.bg-green .text-color-white .text-margin-top}
 
-<!--
+## Sharing Data
 
-# Outline
+<br>
 
-0. Repeat
-- git vs GH
-- how to make a branch and commit changes
-- Make a PR and merge it
+::: {.blockquote}
 
-1. Collaboration
-- some intro about forms of collaboration
-- Lets talk about it (Discussions)
-- Collaborators on GH
-- Teams of GH
-- [Project communication plan]
-- Task management (Issues)
-- link Issues with PR
-- Milestones
-- Projects
+Do you generate data and/or software?
 
-2. Dissemination
-- README
-- LICENCE
-- Wiki
-- Tags and Releases
-- GH + Zenodo
+:::
 
--->
+<br>
+
+Then you should tell others:
+
+::: {.incremental}
+
+1. What the data/code is about
+2. How to cite it
+3. How to use it (what anyone can do with it)
+
+:::
+
+
+## 1. What the data/code is about
+
+<br>
+
+### README (`README.md`)
+
+::: {.incremental}
+- is the description of the project
+- is the first thing anyone sees when they open your repo
+- can use Markdown to format the text, add links, images, etc.
+- can have badges ([SHIELD.IO](https://shields.io/))
+:::
+
+<br>
+
+::: {.fragment}
+| R-CMD | CRAN | Coverage |
+| :---: | :---: | :---: | 
+| ![R-CMD-check](https://github.com/tidyverse/ggplot2/actions/workflows/R-CMD-check.yaml/badge.svg)| ![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/ggplot2) | ![Codecov test coverage](https://codecov.io/gh/tidyverse/ggplot2/graph/badge.svg) |
+:::
+
+## Practical Exercise {.exercise .text-center}
+
+<br>
+
+::: {.blockquote}
+
+1. Make a `README.md` file in your repo
+2. Add a description of the project
+3. (Optional) Add a badge to the README
+
+:::
+
+`r countdown(minutes = 5)`
+
+## 1. What the data/code is about
+
+<br>
+
+### Wiki 
+
+You can use [Wiki]{.text-background-green} to provide more detailed information about your project.
+
+```{r}
+#| label: GH-wiki
+knitr::include_graphics("https://github.blog/wp-content/uploads/2014/05/b6d486e6-d09c-11e3-9fd1-1bc80fb64371.png")
+```
+
+::: footer
+[GitHub Docs](https://docs.github.com/en/communities/documenting-your-project-with-wikis/about-wikis)
+:::
+
+
+## 1. What the data/code is about
+
+<br>
+
+### Custom websites 
+
+- use [QUARTO](https://quarto.org/) to make a website for your project
+- host it on using [GitHub Pages](https://pages.github.com/) (eg [VegVault](https://github.com/OndrejMottl/VegVault))
+
+
+```{r}
+#| label: quarto-website
+knitr::include_graphics("https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/c2ef45f1-4a68-4c7a-a43f-bdcf0f90e104_rw_1920.png?h=89c4f4138772e8b374e21a814cc91b2f")
+```
+
+::: {.footer}
+[Allison Horst](https://allisonhorst.com/cetinkaya-rundel-lowndes-quarto-keynote)
+:::
+
+## 2. How to cite it
+
+<br>
+
+:::: columns
+::: {.column width="50%" .fragment}
+
+```{r}
+#| label: DOI
+include_local_figure("Scriberia/DOI.jpg")
+```
+
+:::
+
+::: {.column width="50%" .incremental}
+
+* Get a permanent URL to the repository as a [**Digital Object Identifier**]{.text-background-green} (DOI)
+* Deposit them in a "stable" repository (eg. [Zenodo](https://zenodo.org/), [Figshare](https://figshare.com/), etc)
+* Included an example of how to cite it in the [**README**]{.text-background-pink} or documentation
+
+:::
+::::
+
+::: {.footer}
+[This image was created by Scriberia for The Turing Way community and is used under a CC-BY licence](https://zenodo.org/doi/10.5281/zenodo.3332807)
+::: 
+
+## 3. How to use it 
+
+### what anyone can do with with your data/code
+
+### Licensing
+
+There are websites e.g. [https://choosealicense.com/](https://choosealicense.com/) to help on choosing a licence.
+
+```{r}
+#| label: licensing
+knitr::include_graphics("https://howtofair.dk/media/vkynh5av/examples-of-data-licences.png")
+```
+
+‼️You can always share your private data and [**restricted access**]{.text-background-pink} with the correct licence.
+
+::: footer
+[How to  FAIR](https://howtofair.dk/how-to-fair/data-licences/)
+:::
+
+## Publishing your data/code
+
+GitHub uses [git Tag]() and expand on it with [Releases]().
+
+:::: {.columns}
+
+::: {.column width="45%" .fragment}
+A [Tag]{.text-background-green} is a "frozen" state of repo at a certain time
+
+```{r}
+#| label: git-tag
+knitr::include_graphics("https://miro.medium.com/v2/resize:fit:720/format:webp/1*34EO-6Ra2ath8-p4iBQBRQ.png")
+```
+
+:::
+
+::: {.column width="45%" .fragment}
+A [Release]{.text-background-pink}, based on a [Tag]{.text-background-green}, "packs" the whole repo into [downloadable zip]{.text-background-black} (with docs)
+
+```{r}
+#| label: git-release
+knitr::include_graphics("https://github.blog/wp-content/uploads/2021/10/GitHub-new-releases-screenshot.png?resize=1024%2C772?w=1024")
+```
+
+:::
+
+::::
+
+::: footer
+[Git Tag - All You Need to Know](https://medium.com/@basecs101/git-tag-all-you-need-to-know-latest-be443ae90bb9) | [GitHub Docs](https://github.blog/news-insights/product-news/beta-github-releases-improving-release-experience/)
+:::
+
+## Practical Exercise {.exercise .text-center}
+
+<br>
+
+:::{.blockquote}
+* What is the difference between a Tag and a Release?
+* Make a new Release in your repository
+:::
+
+`r countdown(minutes = 5)`
+
+
+## Dissemination
+
+### GitHub + ZENODO
+
+Get [DOI]{.text-background-green} for your code and data with [Zenodo]{.text-background-pink}.
+
+:::: {.columns}
+::: {.column width="20%"}
+
+```{r}
+#| label: zenodo-gh-love
+knitr::include_graphics("https://conservationbytes.com/wp-content/uploads/2021/11/zenodolovesgithub.png")
+```
+:::
+
+::: {.column width="80%"}
+
+```{r}
+#| label: zenodo-gh-love2
+include_local_figure("Github/zenodo-gh.png")
+```
+:::
+
+::::
+
+::: footer
+[Want a permanent DOI assigned to your data and code?](https://conservationbytes.com/2021/11/02/want-a-permanent-doi-assigned-to-your-data-and-code-follow-this-simple-recipe/) | [Zenodo](https://zenodo.org/)
+:::
+
+## This is just a teaser
+
+:::: {.columns}
+
+::: {.column width="45%" .fragment}
+
+GitHub has a lot of [features]{.text-background-green} and [tools]{.text-background-pink} to make your life easier:
+
+* Organisations
+* Templates
+* Automation (CI/CD)
+* Rulesets
+* Security
+* ...
+
+:::
+
+::: {.column width="55%" .fragment}
+
+In addition, I have [additional materials]{.text-background-orange-web} on:
+
+* Clean code
+* Reproducibile analysis
+* Large-scale quantitative analysis
+* Functional programming
+* Literate programming (QUARTO)
+* ...
+
+:::
+
+::::
+
+::: {.fragment}
+Maybe next time?
+:::
+
 
 <!--OUTRO-->
 
